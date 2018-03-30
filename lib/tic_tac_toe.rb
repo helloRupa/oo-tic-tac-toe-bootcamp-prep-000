@@ -66,5 +66,20 @@ class TicTacToe
     turn_count % 2 == 0 ? "X" : "O"
   end
   
-  
+  def won?
+    b_size = @board.size - 1
+    (0..b_size).each do |pos|
+      if position_taken?(pos)
+        marker = @board[pos]
+        @WIN_COMBINATIONS.each do |combo|
+          if combo[0] == pos
+            if combo.all? {|i| @board[i] == marker}
+              return combo
+            end
+          end
+        end
+      end
+    end
+    false
+  end
 end
