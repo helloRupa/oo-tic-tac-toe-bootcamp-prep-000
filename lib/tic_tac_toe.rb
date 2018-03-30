@@ -94,4 +94,18 @@ class TicTacToe
   def over?
     won? || full? || draw?
   end
+  
+  def play
+    if !over?
+      turn
+      play
+    end
+    if won?
+      #winner = winner
+      puts "Congratulations #{winner}!"
+    end
+    if draw?
+      puts "Cat's Game!"
+    end
+  end
 end
