@@ -68,7 +68,7 @@ class TicTacToe
     (0..b_size).each do |pos|
       if position_taken?(pos)
         marker = @board[pos]
-        @WIN_COMBINATIONS.each do |combo|
+        WIN_COMBINATIONS.each do |combo|
           if combo[0] == pos
             if combo.all? {|i| @board[i] == marker}
               return combo
