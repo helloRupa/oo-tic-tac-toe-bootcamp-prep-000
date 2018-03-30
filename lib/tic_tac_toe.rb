@@ -82,4 +82,16 @@ class TicTacToe
     end
     false
   end
+  
+  def full?
+    @board.all? {|pos| pos == "X" || pos == "O"}
+  end
+
+  def draw?
+    !won? && full?
+  end
+
+  def over?
+    won? || full? || draw?
+  end
 end
